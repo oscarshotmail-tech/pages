@@ -19,10 +19,11 @@ jobs:
         with:
           node-version: 22
 
-      - run: npm ci
-      - run: npm run build
+      - run: npm ci --prefix my-react-app
+
+      - run: npm run build --prefix my-react-app
 
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./my-react-app/dist
